@@ -1,0 +1,107 @@
+{
+  "tasks": [
+    {
+      "id": "task-1774962126852",
+      "title": "Python",
+      "description": "",
+      "status": "in_progress",
+      "storyId": "story-1774970102187",
+      "resources": "[]",
+      "createdAt": "2026-03-31T13:02:06.852Z",
+      "completedAt": null,
+      "updatedAt": "2026-03-31T18:14:24.142Z",
+      "subtasks": [
+        {
+          "id": "day-1-1774980860413",
+          "title": "Day 1 [6h]: Python Foundations\n📚 Keywords & Identifiers, Statements, Indentation & Comments, Variables/Constants/Literals, Data Types\n🏗️ Initialize CLI app → Store and display basic user input (name, task title)\n✅ After this day, you should be able to write clean Python code with correct syntax, variables, and data types.",
+          "status": "todo",
+          "timeSpentSeconds": 59,
+          "createdAt": "2026-03-31T18:14:20.413Z"
+        },
+        {
+          "id": "day-2-1774980860413",
+          "title": "Day 2 [6h]: Input, Operators & Flow Control\n📚 Input/Output & Import, Operators, Type Conversion, if...else\n🏗️ Add task priority system (high/low) → Add conditional logic (e.g., warnings, validations)\n✅ After this day, you should be able to control program flow using conditions and operators.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.413Z"
+        },
+        {
+          "id": "day-3-1774980860414",
+          "title": "Day 3 [6h]: Loops & Iteration\n📚 for Loop, while Loop, break & continue\n🏗️ Create menu-driven CLI (loop-based system) → Allow multiple task entries and viewing\n✅ After this day, you should be able to build dynamic programs using loops and control iteration flow.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.414Z"
+        },
+        {
+          "id": "day-4-1774980860414",
+          "title": "Day 4 [6h]: Functions & Modularity\n📚 Functions, Function Arguments, Recursion, Lambda\n🏗️ Refactor project into functions → Add reusable features (add_task, view_task, delete_task)\n✅ After this day, you should be able to structure programs using reusable functions and modular logic.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.414Z"
+        },
+        {
+          "id": "day-5-1774980860414",
+          "title": "Day 5 [6h]: Data Structures\n📚 List, Tuple, Strings, Sets, Dictionary\n🏗️ Store tasks using dictionaries & lists → Add search/filter functionality\n✅ After this day, you should be able to manage and manipulate structured data efficiently.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.414Z"
+        },
+        {
+          "id": "day-6-1774980860414",
+          "title": "Day 6 [6h]: Files, Errors & Exceptions\n📚 File I/O, Directory Management, Errors & Built-in Exceptions, Exception Handling, Custom Exceptions\n🏗️ Save tasks to file (persistent storage) → Load tasks on restart → Add error-safe system (invalid input handling)\n✅ After this day, you should be able to build reliable programs with file storage and robust error handling.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.414Z"
+        },
+        {
+          "id": "day-7-1774980860414",
+          "title": "Day 7 [6h]: Modules, OOP & Project Structuring\n📚 Modules, Packages, Namespace & Scope, Global/Local/Nonlocal, Global Keyword, OOP (Classes, Objects, Inheritance, Multiple Inheritance)\n🏗️ Convert project into OOP design (Task class, Manager class) → Split into modules/files\n✅ After this day, you should be able to design scalable Python applications using OOP and modular architecture.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.414Z"
+        },
+        {
+          "id": "day-8-1774980860414",
+          "title": "Day 8 [6h]: Advanced Utilities & Real-World Features\n📚 Iterators, Generators, RegEx, datetime, strftime(), strptime(), Numbers & Math\n🏗️ Add deadlines using datetime → Add search using RegEx → Optimize iteration using generators\n✅ After this day, you should be able to enhance applications with real-world features like time handling, pattern matching, and efficient data processing.",
+          "status": "todo",
+          "timeSpentSeconds": 0,
+          "createdAt": "2026-03-31T18:14:20.414Z"
+        }
+      ],
+      "timeSpentSeconds": 446
+    }
+  ],
+  "quotes": [
+    {
+      "id": "quote-1774970073114",
+      "text": "\"success is the sum of small efforts, repeated day in and day out\"",
+      "originalText": "\"success is the sum of small efforts, repeated day in and day out\"",
+      "author": "Guardian",
+      "taskId": null,
+      "createdAt": "2026-03-31T15:14:33.115Z"
+    }
+  ],
+  "notes": [],
+  "stories": [
+    {
+      "id": "story-1774968785640",
+      "content": "Applying the logic of this spark to my Python lineage: \"success is the sum of small efforts, repeated day in and day out\"",
+      "taskId": "task-1774962126852",
+      "taskTitle": "Python",
+      "createdAt": "2026-03-31T14:53:05.640Z"
+    },
+    {
+      "id": "story-1774970102187",
+      "content": "Done is better than perfect\n",
+      "taskId": "task-1774962126852",
+      "taskTitle": "Python",
+      "createdAt": "2026-03-31T15:15:02.187Z"
+    }
+  ],
+  "settings": {
+    "aiApiKey": "",
+    "geminiApiKey": "AIzaSyA_UDqrXG7NV1yyECjII6K0VfnBwJ4Mu9k",
+    "preferredModel": "gemini",
+    "agentEnabled": true
+  }
+}

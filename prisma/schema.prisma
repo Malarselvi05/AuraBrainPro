@@ -1,0 +1,52 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./active.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Task {
+  id               String    @id @default(cuid())
+  title            String
+  description      String?   
+  status           String    @default("todo") // todo | in_progress | completed
+  timeSpentSeconds Int       @default(0)      
+  createdAt        DateTime  @default(now())
+  completedAt      DateTime?
+  story            Story?    @relation(fields: [storyId], references: [id])
+  storyId          String?
+}
+
+model Quote {
+  id        String   @id @default(cuid())
+  text      String
+  author    String?
+  createdAt DateTime @default(now())
+}
+
+model Story {
+  id        String   @id @default(cuid())
+  situation String
+  action    String
+  outcome   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  tasks     Task[]
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  content   String
+  category  String?
+  createdAt DateTime @default(now())
+}
+
+model CurriculumModule {
+  id        String   @id @default(cuid())
+  name      String
+  status    String   @default("todo")
+  section   String   
+  createdAt DateTime @default(now())
+}
