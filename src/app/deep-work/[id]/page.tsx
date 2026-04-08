@@ -98,7 +98,7 @@ export default function DeepWorkPage({ params }: { params: Promise<{ id: string 
       if (selectedSubTaskId) {
         updatedSubs = updatedSubs.map(st => st.id === selectedSubTaskId ? { ...st, timeSpentSeconds: st.timeSpentSeconds + unsaved } : st);
       }
-      await fetch('/api/tasks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: taskRef.current.id, timeSpentSeconds: newTotal, auraPoints, subtasks: updatedSubs, isSyncOnly: true }) });
+      await fetch('/api/tasks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: taskRef.current.id, timeSpentSeconds: newTotal, auraPoints, subtasks: updatedSubs, isSyncOnly: true, focusSessionSeconds: unsaved }) });
       setLastAutoSaveSeconds(totalSecondsWorked);
       taskRef.current = { ...taskRef.current, timeSpentSeconds: newTotal, subtasks: updatedSubs };
       setTask(taskRef.current);

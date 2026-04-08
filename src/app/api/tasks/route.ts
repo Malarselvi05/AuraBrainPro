@@ -9,14 +9,21 @@ function readMirror() {
     if (!fs.existsSync(MIRROR_PATH)) {
       const initial = { 
         tasks: [], 
+        archivedTasks: [], 
         quotes: [], 
         stories: [],
+        notes: [],
         auraPoints: 0,
         totalStars: 0,
         settings: { // AI Agent Hub v12.0
             aiApiKey: "",
-            preferredModel: "gemini-1.5-pro",
+            geminiApiKey: "",
+            preferredModel: "gemini",
             agentEnabled: false
+        },
+        stats: {
+          identityStatement: "I am a person who focuses daily, no matter what.",
+          dailyFocusLogs: {}
         }
       };
       fs.writeFileSync(MIRROR_PATH, JSON.stringify(initial, null, 2));
@@ -24,6 +31,7 @@ function readMirror() {
     }
     const data = JSON.parse(fs.readFileSync(MIRROR_PATH, 'utf-8'));
     if (!data.settings) data.settings = { aiApiKey: "", preferredModel: "gemini-1.5-pro", agentEnabled: false };
+    if (!data.stats) data.stats = { identityStatement: "I am a person who focuses daily, no matter what.", dailyFocusLogs: {} };
     return data;
   } catch (e) { return { tasks: [], quotes: [], settings: { aiApiKey: "", preferredModel: "gemini-1.5-pro", agentEnabled: false } }; }
 }
@@ -48,13 +56,20 @@ export async function GET() {
       return { ...task, story: story || null };
     });
 
-    const sortedTasks = hydratedTasks.sort((a: any, b: any) => 
+    const activeTasks = hydratedTasks.filter((t: any) => !t.archived);
+    const archivedTasks = hydratedTasks.filter((t: any) => t.archived);
+
+    const sortedTasks = activeTasks.sort((a: any, b: any) => 
       new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
 
     return NextResponse.json({ 
       tasks: sortedTasks, 
-      quotes: quotes 
+      archivedTasks: archivedTasks,
+      quotes: quotes,
+      settings: data.settings,
+      stats: data.stats,
+      auraPoints: data.auraPoints || 0
     });
   } catch (error: any) {
     return NextResponse.json({ error: 'Registry Recovery Active' }, { status: 500 });
@@ -64,8 +79,9 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { title, description, storyId, resources, id, timeSpentSeconds, isSyncOnly, subtasks } = body;
+    const { title, description, storyId, resources, id, timeSpentSeconds, isSyncOnly, subtasks, focusSessionSeconds, stats, auraPoints: bodyAuraPoints, archived } = body;
     const data = readMirror();
+    if (!data.stats) data.stats = { identityStatement: "I am a person who focuses daily, no matter what.", dailyFocusLogs: {} };
 
     // SOLID-PATH SYNC: If this is an effort update (from Focus Hub)
     if (isSyncOnly && id) {
@@ -75,12 +91,27 @@ export async function POST(req: Request) {
         }
 
         if (taskIndex !== -1) {
-            data.tasks[taskIndex].timeSpentSeconds = timeSpentSeconds;
+            if (timeSpentSeconds !== undefined) data.tasks[taskIndex].timeSpentSeconds = timeSpentSeconds;
             if (body.status) data.tasks[taskIndex].status = body.status;
             if (subtasks) data.tasks[taskIndex].subtasks = subtasks; 
+            if (bodyAuraPoints !== undefined) data.auraPoints = bodyAuraPoints;
+            if (archived !== undefined) data.tasks[taskIndex].archived = archived;
+            
+            if (focusSessionSeconds) {
+                const today = new Date().toISOString().split('T')[0];
+                if (!data.stats.dailyFocusLogs[today]) data.stats.dailyFocusLogs[today] = 0;
+                data.stats.dailyFocusLogs[today] += focusSessionSeconds;
+            }
+
             writeMirror(data);
-            return NextResponse.json(data.tasks[taskIndex]);
+            return NextResponse.json({ ...data.tasks[taskIndex], auraPoints: data.auraPoints });
         }
+    }
+
+    if (isSyncOnly && stats) {
+        data.stats = { ...data.stats, ...stats };
+        writeMirror(data);
+        return NextResponse.json(data.stats);
     }
 
     // SETTINGS ONLY PATH: Secure AI Agent Settings (v12.1)

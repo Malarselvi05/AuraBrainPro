@@ -15,7 +15,7 @@
           "id": "day-1-1774980860413",
           "title": "Day 1 [6h]: Python Foundations\n📚 Keywords & Identifiers, Statements, Indentation & Comments, Variables/Constants/Literals, Data Types\n🏗️ Initialize CLI app → Store and display basic user input (name, task title)\n✅ After this day, you should be able to write clean Python code with correct syntax, variables, and data types.",
           "status": "todo",
-          "timeSpentSeconds": 59,
+          "timeSpentSeconds": 72,
           "createdAt": "2026-03-31T18:14:20.413Z"
         },
         {
@@ -68,7 +68,7 @@
           "createdAt": "2026-03-31T18:14:20.414Z"
         }
       ],
-      "timeSpentSeconds": 446
+      "timeSpentSeconds": 459
     }
   ],
   "quotes": [
@@ -79,6 +79,14 @@
       "author": "Guardian",
       "taskId": null,
       "createdAt": "2026-03-31T15:14:33.115Z"
+    },
+    {
+      "id": "quote-1775663663943",
+      "text": "Success is the  sum of all efforts repeated each day",
+      "originalText": "Success is the  sum of all efforts repeated each day",
+      "author": "Guardian",
+      "taskId": null,
+      "createdAt": "2026-04-08T15:54:23.943Z"
     }
   ],
   "notes": [],
@@ -96,6 +104,13 @@
       "taskId": "task-1774962126852",
       "taskTitle": "Python",
       "createdAt": "2026-03-31T15:15:02.187Z"
+    },
+    {
+      "id": "story-1775663750621",
+      "content": "🌍 Situation:\nA final-year engineering student wanted a high-paying AI job but felt overwhelmed by how much there was to learn. He kept watching tutorials and planning big study schedules but rarely followed through, ending most days feeling unproductive and frustrated.\n\n⚡ Action Steps:\nHe stopped chasing long study hours and committed to just 1 focused hour daily on a single topic.\nHe broke learning into micro-tasks: one concept, one problem, one small implementation each day.\nHe tracked consistency on a calendar, marking every day he showed up, no matter how small the effort.\nHe built tiny projects weekly, even if incomplete, instead of waiting to “feel ready.”\n\n✨ Outcome:\nOver three months, his small daily efforts compounded into real skills—he could now confidently build projects and explain concepts. What once felt impossible became routine, and he secured interview calls not because of sudden brilliance, but because he showed up every single day.",
+      "taskId": null,
+      "taskTitle": null,
+      "createdAt": "2026-04-08T15:55:50.621Z"
     }
   ],
   "settings": {
@@ -103,5 +118,11 @@
     "geminiApiKey": "AIzaSyA_UDqrXG7NV1yyECjII6K0VfnBwJ4Mu9k",
     "preferredModel": "gemini",
     "agentEnabled": true
+  },
+  "stats": {
+    "identityStatement": "I am a person who focuses daily, no matter what.",
+    "dailyFocusLogs": {
+      "2026-04-07": 13
+    }
   }
 }

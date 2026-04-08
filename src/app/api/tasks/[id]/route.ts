@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
@@ -15,7 +15,7 @@ const writeMirror = (data: any) => {
     fs.writeFileSync(MIRROR_PATH, JSON.stringify(data, null, 2));
 };
 
-export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function PATCH(req: NextRequest, { params }: { params: Promise<any> }) {
     const { id } = await params;
     try {
         const body = await req.json();
@@ -39,7 +39,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
         return NextResponse.json({ error: 'Registry Synchronization Failure' }, { status: 500 });
     }
 }
-export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<any> }) {
     const { id } = await params;
     try {
         const data = readMirror();

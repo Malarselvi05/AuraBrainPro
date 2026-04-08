@@ -69,22 +69,23 @@
 
 ---
 
-## 🔲 Phase 5 — Progress Visualization [REMAINING]
+## ✅ Phase 5 — Progress Visualization [COMPLETE]
 
-- [ ] **Mission Progress Chart** — line/bar chart (Recharts) showing time logged per day over the week
-- [ ] **Heatmap** — GitHub-style activity heatmap for focus streaks
-- [ ] **Per-mission stats panel** — total time, days completed, avg session length
-- [ ] **Aura Points history** — ledger of earned/spent points
+- [x] **Mission Progress Chart** — line/bar chart (Recharts) showing time logged per day over the last 14 days
+- [x] **Heatmap** — GitHub-style 12-week activity heatmap for focus streaks
+- [x] **Per-mission stats panel** — total time, completion %, and subtask breakdown tracking
+- [x] **Aura Points tracking** — real-time total updates and persistence across components
+
 
 ---
 
-## 🔲 Phase 6 — Story Weaver AI [REMAINING]
+## ✅ Phase 6 — Story Weaver AI [COMPLETE]
 
-- [ ] Global Quotes tab — save quotes/inspirations to `mirror.json`
-- [ ] "Story Weaver" — AI converts a quote into a [Situation → Action → Outcome] story
-- [ ] Story → Task conversion (1-click: turn AI story into a Chrono-Vault mission node)
-- [ ] `storyStatus`: `pending` | `ready` to prevent duplicate AI calls
-- [ ] Story edit modal before saving (mandatory editing gate)
+- [x] Global Quotes Vault — tabbed persistence for saving/viewing inspirations
+- [x] "Story Weaver Engine" — Zero-key redirection to ChatGPT with pre-built SAO prompts
+- [x] Story → Mission conversion — 1-click parsing of AI action steps into executable Chrono-Vault missions
+- [x] Paste-back Parser — handles AI Situation/Action/Outcome blocks without complex API keys
+- [x] Story Editor — ability to tweak parsed results before saving or generating missions
 
 ---
 
